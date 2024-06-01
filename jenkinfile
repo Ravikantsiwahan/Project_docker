@@ -2,18 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git url: 'https://github.com/your_username/your_repository.git', branch: 'main'
-            }
-        }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    dockerImage = docker.build("your_dockerhub_username/node-app:${env.BUILD_ID}")
-                }
-            }
-        }
+     
         stage('Push Docker Image') {
             steps {
                 script {
